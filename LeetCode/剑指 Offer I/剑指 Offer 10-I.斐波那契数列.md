@@ -97,15 +97,15 @@
 
     - 首先我们可以构建这样一个递推关系：
       <div>
-      <img src="https://latex.codecogs.com/svg.latex? \begin{bmatrix}1&1\\\\1&0\\\\\end{bmatrix}\begin{bmatrix}{F(n)}\\\\{F(n-1)}\end{bmatrix}=\begin{bmatrix}{F(n)+F(n-1)}\\\\{F(n)}\\\\\end{bmatrix}=\begin{bmatrix}{F(n+1)}\\\\F(n)\\\\\end{bmatrix}">
+      <img src="http://latex.codecogs.com/svg.latex? \begin{bmatrix}1&1\\\\1&0\\\\\end{bmatrix}\begin{bmatrix}{F(n)}\\\\{F(n-1)}\end{bmatrix}=\begin{bmatrix}{F(n)+F(n-1)}\\\\{F(n)}\\\\\end{bmatrix}=\begin{bmatrix}{F(n+1)}\\\\F(n)\\\\\end{bmatrix}">
       </div>
     - 因此：
       <div>
-      <img src="https://latex.codecogs.com/svg.latex? \begin{bmatrix}{F(n+1)}\\\\{F(n)}\\\\\end{bmatrix}={\begin{bmatrix}1&1\\\\1&0\\\\\end{bmatrix}^{n}}\begin{bmatrix}{F(1)}\\\\{F(0)}\\\\\end{bmatrix}">
+      <img src="http://latex.codecogs.com/svg.latex? \begin{bmatrix}{F(n+1)}\\\\{F(n)}\\\\\end{bmatrix}={\begin{bmatrix}1&1\\\\1&0\\\\\end{bmatrix}^{n}}\begin{bmatrix}{F(1)}\\\\{F(0)}\\\\\end{bmatrix}">
       </div>
     - 令：
       <div>
-      <img src="https://latex.codecogs.com/svg.latex? M={\begin{bmatrix}1&1\\\\1&0\\\\\end{bmatrix}">
+      <img src="http://latex.codecogs.com/svg.latex? M={\begin{bmatrix}1&1\\\\1&0\\\\\end{bmatrix}">
       </div>
     - 因此只要我们能快速计算矩阵 M 的 n 次幂，就可以得到 F(n) 的值。如果直接求取 <img src="https://latex.codecogs.com/svg.latex? M^n"> ，时间复杂度是 O(N) ，可以定义矩阵乘法，然后用快速幂算法来加速这里 <img src="https://latex.codecogs.com/svg.latex? M^n"> 的求取
 
