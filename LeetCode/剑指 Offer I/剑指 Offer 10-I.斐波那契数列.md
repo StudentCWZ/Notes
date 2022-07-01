@@ -145,9 +145,6 @@
    
    const mod int = 1e9+7
    
-   type martix [2][2]int
-   
-   
    func multiply(a, b [2][2]int) [2][2]int {
        c := [2][2]int{
            {0, 0},
