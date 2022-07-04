@@ -19,8 +19,6 @@
     ```
 3. Golang 版本
    ```go
-   package main
-   
    func findRepeatNumber(nums []int) int {
        resultMap := make(map[int]int)
        repeated := -1
