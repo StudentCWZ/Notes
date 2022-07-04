@@ -33,8 +33,6 @@
 3. Golang 版本
 
    ```go
-   package main
-   
    func numWays(n int) int {
        const mod int = 1e9+7
        if n == 0 {
