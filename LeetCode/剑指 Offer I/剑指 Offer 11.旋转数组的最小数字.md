@@ -102,7 +102,7 @@
 
 5. 复杂度分析
 
-    - 时间复杂度 <img src="http://latex.codecogs.com/svg.latex? O(log_2N)">：在特例情况下(例如 [1, 1, 1, 1])，会退化到 O(N)
+    - 时间复杂度 <img src="http://latex.codecogs.com/svg.latex? O(log_2N)" height="14px">：在特例情况下(例如 [1, 1, 1, 1])，会退化到 O(N)
     - 空间复杂度 O(1)：i, j, m 变量使用常数大小的额外空间
 
 
