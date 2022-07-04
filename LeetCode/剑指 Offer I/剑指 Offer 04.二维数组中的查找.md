@@ -22,8 +22,6 @@
 3. Golang 版本
 
    ```go
-   package main
-   
    func findNumberIn2DArray(matrix [][]int, target int) bool {
        for _, s := range matrix {
            for _, v := range s {
@@ -77,8 +75,6 @@
 4. Golang 版本
 
    ```go
-   package main
-   
    func findNumberIn2DArray(matrix [][]int, target int) bool {
        i, j := len(matrix) - 1, 0
        for i >= 0 && j < len(matrix[0]) {
