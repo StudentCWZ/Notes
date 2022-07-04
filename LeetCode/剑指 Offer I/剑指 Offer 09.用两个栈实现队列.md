@@ -38,8 +38,6 @@
 3. Golang 版本
 
    ```go
-   package main
-   
    type CQueue struct {
        inStack, outStack []int
    
