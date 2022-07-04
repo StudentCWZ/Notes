@@ -65,8 +65,6 @@
 5. Golang 版本
 
    ```go
-   package main
-   
    func fib(n int) int {
        const mod int = 1e9+7
        if n < 2 {
@@ -84,8 +82,8 @@
 
 6. 复杂度分析
 
-    - 时间复杂度 O(N) ：计算 f(n) 需循环 n 次，每轮循环内计算操作使用 O(1)
-    - 空间复杂度 O(1) ：几个标志变量使用常数大小的额外空间
+    - 时间复杂度 O(N)：计算 f(n) 需循环 n 次，每轮循环内计算操作使用 O(1)
+    - 空间复杂度 O(1)：几个标志变量使用常数大小的额外空间
 
 #### 方法二：矩阵快速幂
 
@@ -141,8 +139,6 @@
 4. Golang 版本
 
    ```go
-   package main
-   
    const mod int = 1e9+7
    
    func multiply(a, b [2][2]int) [2][2]int {
