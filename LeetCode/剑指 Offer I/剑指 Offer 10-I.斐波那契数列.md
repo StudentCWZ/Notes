@@ -34,7 +34,7 @@
         - 节省了 dp 列表空间，因此空间复杂度降至 O(1)
     - 循环求余法
         - 大数越界：随着 n 增大, f(n) 会超过 Int32 甚至 Int64 的取值范围，导致最终的返回值错误
-        - 求余运算规则：设正整数 x, y, p ，求余符号为 <img src="http://latex.codecogs.com/svg.latex? \odot"> ，则有 <img src="http://latex.codecogs.com/svg.latex? (x+y)\odot{p}=({x}\odot{p}+{y}\odot{p})\odot{p}">
+        - 求余运算规则：设正整数 x, y, p ，求余符号为 <img src="http://latex.codecogs.com/svg.latex? \odot"> ，则有 <img src="http://latex.codecogs.com/svg.latex? (x+y)\odot{p}=({x}\odot{p}+{y}\odot{p})\odot{p}" height="1.5">
         - 解析：根据以上规则，可推出 <img src="http://latex.codecogs.com/svg.latex? f(n)\odot{p}=[f(n-1)\odot{p}+f(n-2)\odot{p}]\odot{p}"> ，从而可以在循环过程中每次计算 <img src="http://latex.codecogs.com/svg.latex? sum=(a+b)\odot{1000000007}"> ，此操作与最终返回前取余等价
 
 3. Python 3 版本
