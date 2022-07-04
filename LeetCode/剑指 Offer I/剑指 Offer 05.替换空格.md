@@ -43,10 +43,6 @@
 5. Golang 版本(API)
 
    ```go
-   package main
-   
-   import "strings"
-   
    func replaceSpace(s string) string{
        return strings.Replace(s, " ", "%20", -1)
    }
@@ -55,10 +51,6 @@
 6. Golang 版本
 
    ```go
-   package main
-   
-   import "strings"
-   
    func replaceSpace(s string) string {
       resultSlice := make([]string, 0)
       for i := 0; i < len(s); i++ {
