@@ -7,8 +7,8 @@
 1. 思路
 
     - Python 算法流程
-        - 递推阶段： 每次传入 head.next ，以 head == None(即走过链表尾部节点)为递归终止条件，此时返回空列表 []
-        - 回溯阶段： 利用 Python 语言特性，递归回溯时每次返回 当前 list + 当前节点值 [head.val] ，即可实现节点的倒序输出
+        - 递推阶段：每次传入 head.next ，以 head == None(即走过链表尾部节点)为递归终止条件，此时返回空列表 []
+        - 回溯阶段：利用 Python 语言特性，递归回溯时每次返回 当前 list + 当前节点值 [head.val] ，即可实现节点的倒序输出
 
 2. Python 3 版本
 
@@ -59,8 +59,6 @@
 3. Golang 版本
 
    ```go
-   package main
-   
    type ListNode struct {
        Val int
        Next *ListNode
@@ -93,8 +91,6 @@
 4. Golang 另一版本
 
    ```go
-   package main
-   
    type ListNode struct {
        Val int
        Next *ListNode
@@ -118,8 +114,8 @@
    ```
 
 5. 复杂度分析
-    - 时间复杂度 O(N) ：入栈和出栈共使用 O(N) 时间
-    - 空间复杂度 O(N) ：辅助栈 stack 使用 O(N) 的额外空间
+    - 时间复杂度 O(N)：入栈和出栈共使用 O(N) 时间
+    - 空间复杂度 O(N)：辅助栈 stack 使用 O(N) 的额外空间
 
 
 
