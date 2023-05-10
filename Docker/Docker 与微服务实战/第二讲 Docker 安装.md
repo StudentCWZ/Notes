@@ -9,7 +9,6 @@
 3. 因此，Docker 必须部署在 Linux 内核系统上。如果其他系统想部署 Docker 就必须安装一个虚拟 Linux 环境。
 4. 在 Windows 上部署 Docker 的方法都是先安装一个虚拟机，并在安装 Linux 系统的虚拟机中运行 Docker
 
-
 ### 2.1.2 前提条件
 
 1. 目前，CentOS 仅发行版本中的内核支持 Docker。
