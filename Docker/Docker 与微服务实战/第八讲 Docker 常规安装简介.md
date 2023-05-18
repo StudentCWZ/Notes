@@ -356,4 +356,132 @@
 
 ## 8.4 安装 redis
 
-## 8.5 安装 Nginx
+1. 从 Docker Hub 上(阿里云加速器)拉取 redis 镜像到本地标签为 6.0.8
+
+   ```bash
+   docker pull redis:6.0.8
+   ```
+
+2. 入门命令
+
+   - 运行容器
+
+     ```bash
+     docker run -d -p 16379:6379 redis:6.0.8
+     ```
+
+   - 进入容器
+
+     ```bash
+     docker exec -it 9747aa694397 /bin/bash
+     ```
+
+   - 进入容器内部的使用 redis
+
+     ```bash
+     redis-cli
+     127.0.0.1:6379> set k1 v1
+     OK
+     127.0.0.1:6379> get k1
+     "v1"
+     ```
+
+3. 命令提醒：容器卷机的加入 `--privileged=true`
+
+   - Docker 挂载主机目录 Docker 访问出现 cannot open directory: Permission denied
+   - 解决方法：在挂载目录后多加一个 `--privileged=true` 参数即可
+
+4. 在宿主机下新建目录 /Users/cuiweizhi/Downloads/app/redis
+
+   ```bash
+   mkdir -p /app/redis
+   ```
+
+5. 将一个 redis.conf 文件模板拷贝进 /Users/cuiweizhi/Downloads/app/redis 目录下
+
+   ```bash
+   cp ../../../../../usr/local/etc/redis.conf .
+   ```
+
+6. /Users/cuiweizhi/Downloads/app/redis 目录下修改 redis.conf 文件
+
+   - 修改文件
+
+     ```bash
+     vim redis.conf
+     ```
+
+     - 运行 redis 外部连接(注释掉 127.0.0.1)
+
+       ```text
+       # bind 127.0.0.1
+       ```
+
+     - daemonize no
+       - 将 daemonize yes 注释起来或者 daemon no 设置，因为该配置和 docker run 中 -d 参数冲突，会导致容器一直启动失败
+
+7. 容器数据卷挂载
+
+   ```bash
+   docker run -p 16379:6379 --name myredis --privileged=true -v /Users/cuiweizhi/Downloads/app/redis/redis.conf:/etc/redis/redis.conf -v /Users/cuiweizhi/Downloads/app/redis/data:/data -d redis:6.0.8 redis-server /etc/redis/redis.conf
+   ```
+
+8. 查看容器状态
+
+   ```bash
+   docker ps
+   ```
+
+9. 进入容器实例
+
+   ```bash
+   docker exec -it myredis /bin/bash
+   ```
+
+10. 使用 redis-cli 连接上来
+
+    ```bash
+    redis-cli
+    127.0.0.1:6379> set k1 v1
+    OK
+    127.0.0.1:6379> get k1
+    "v1"
+    127.0.0.1:6379> ping
+    PONG
+    127.0.0.1:6379> select 15
+    OK
+    127.0.0.1:6379[15]> select 10
+    OK
+    ```
+
+11. 请证明 docker 启动使用了我们指定的配置文件
+
+    - 修改 redis.conf(容器外部)
+
+      ```bash
+      vim redis.conf
+      ```
+
+    - 修改数据数量为 10
+
+    - 重启容器
+
+      ```bash
+      docker restart myredis
+      ```
+
+    - 进入容器实例
+
+      ```bash
+      docker exec -it myredis /bin/bash
+      ```
+
+    - 使用 redis-cli 连接上来(第二次)
+
+      ```bash
+      redis-cli
+      127.0.0.1:6379> select 15
+      (error) ERR DB index is out of range
+      ```
+
+    - 证明 docker 启动使用了我们指定的配置文件
